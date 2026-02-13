@@ -5,6 +5,7 @@ import styles from "./Label.module.css";
 
 import { QuadrantLink } from "@/components/QuadrantLink/QuadrantLink";
 import { getLabel } from "@/lib/data";
+import { getSectorCenterAngle } from "@/lib/radarGeometry";
 import { Sector } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -13,7 +14,8 @@ interface LabelProps {
 }
 
 export function Label({ quadrant }: LabelProps) {
-  const angleInDegrees = 22.5 + (quadrant.position - 1) * 45;
+  const sectorCount = 8;
+  const angleInDegrees = getSectorCenterAngle(quadrant.position, sectorCount);
   const angleInRadians = (angleInDegrees * Math.PI) / 180;
   const labelDistanceByPosition: Record<number, number> = {
     1: 62,

@@ -1,13 +1,12 @@
+import { getSectorAngle, getSectorStartAngle } from "@/lib/radarGeometry";
 import { Quadrant, Ring } from "@/lib/types";
 
 type Position = [x: number, y: number];
 type RingDimension = [innerRadius: number, outerRadius: number];
 
-// Corresponding to positions 1, 2, 3, and 4 respectively
-const startAngles = [270, 0, 180, 90];
-
 export default class Positioner {
   private readonly centerRadius: number;
+  private readonly sectorAngle: number;
   private readonly minDistance: number = 20;
   private readonly paddingRing: number = 15;
   private readonly paddingAngle: number = 10;
@@ -17,9 +16,13 @@ export default class Positioner {
 
   constructor(size: number, quadrants: Quadrant[], rings: Ring[]) {
     this.centerRadius = size / 2;
+    this.sectorAngle = getSectorAngle(quadrants.length);
 
     quadrants.forEach((quadrant) => {
-      this.quadrantAngles[quadrant.id] = startAngles[quadrant.position - 1];
+      this.quadrantAngles[quadrant.id] = getSectorStartAngle(
+        quadrant.position,
+        quadrants.length,
+      );
     });
 
     rings.forEach((ring, index) => {
@@ -54,7 +57,7 @@ export default class Positioner {
     const absoluteRadius = innerRadius + radiusFraction * ringWidth;
 
     const startAngle = this.quadrantAngles[quadrantId] + this.paddingAngle;
-    const endAngle = startAngle + 90 - 2 * this.paddingAngle;
+    const endAngle = startAngle + this.sectorAngle - 2 * this.paddingAngle;
     const absoluteAngle = startAngle + (endAngle - startAngle) * angleFraction;
     const angleInRadians = ((absoluteAngle - 90) * Math.PI) / 180;
 

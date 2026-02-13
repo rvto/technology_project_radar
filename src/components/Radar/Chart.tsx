@@ -4,7 +4,8 @@ import React, { FC, Fragment, memo } from "react";
 import styles from "./Chart.module.css";
 
 import { Blip } from "@/components/Radar/Blip";
-import { Item, Sector, Ring } from "@/lib/types";
+import { getSectorAngle, getSectorStartAngle } from "@/lib/radarGeometry";
+import { Item, Ring, Sector } from "@/lib/types";
 
 export interface ChartProps {
   size?: number;
@@ -24,11 +25,7 @@ const _Chart: FC<ChartProps> = ({
   const viewBoxSize = size;
   const center = size / 2;
   const sectorCount = 8;
-  const sectorAngle = 360 / sectorCount;
-  const baseStartAngle = 270;
-
-  const getSectorStartAngle = (position: number) =>
-    baseStartAngle + (position - 1) * sectorAngle;
+  const sectorAngle = getSectorAngle(sectorCount);
 
   // Helper function to convert polar coordinates to cartesian
   const polarToCartesian = (
@@ -44,7 +41,7 @@ const _Chart: FC<ChartProps> = ({
 
   // Function to generate the path for a ring segment
   const describeArc = (radiusPercentage: number, position: number): string => {
-    const startAngle = getSectorStartAngle(position);
+    const startAngle = getSectorStartAngle(position, sectorCount);
     const endAngle = startAngle + sectorAngle;
 
     const radius = radiusPercentage * center; // Convert percentage to actual radius
@@ -59,7 +56,7 @@ const _Chart: FC<ChartProps> = ({
   };
 
   const describeSector = (radius: number, position: number): string => {
-    const startAngle = getSectorStartAngle(position);
+    const startAngle = getSectorStartAngle(position, sectorCount);
     const endAngle = startAngle + sectorAngle;
     const start = polarToCartesian(radius, startAngle);
     const end = polarToCartesian(radius, endAngle);
@@ -84,7 +81,10 @@ const _Chart: FC<ChartProps> = ({
             <stop offset="100%" stopColor={color} stopOpacity={0}></stop>
           </radialGradient>
         </defs>
-        <path d={describeSector(center, position)} fill={`url(#${gradientId})`} />
+        <path
+          d={describeSector(center, position)}
+          fill={`url(#${gradientId})`}
+        />
       </>
     );
   };

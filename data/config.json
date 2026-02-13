@@ -4,49 +4,49 @@
     {
       "id": "airline-operations",
       "title": "Airline Operations",
-      "description": "",
+      "description": "Leader Text",
       "color": "#a3b18a"
     },
     {
       "id": "operations",
       "title": "Operations",
-      "description": "",
+      "description": "Leader Text",
       "color": "#588157"
     },
     {
       "id": "tech-ops",
       "title": "Tech Ops",
-      "description": "",
+      "description": "Leader Text",
       "color": "#3f633e"
     },
     {
       "id": "airports",
       "title": "Airports",
-      "description": "",
+      "description": "Leader Text",
       "color": "#40713f"
     },
     {
       "id": "crew-systems",
       "title": "Crew Systems",
-      "description": "",
+      "description": "Leader Text",
       "color": "#40713f"
     },
     {
       "id": "flight-operations",
       "title": "Flight Operations",
-      "description": "",
+      "description": "Leader Text",
       "color": "#40713f"
     },
     {
       "id": "inflight",
       "title": "Inflight",
-      "description": "",
+      "description": "Leader Text",
       "color": "#40713f"
     },
     {
       "id": "safety-and-security",
       "title": "Safety and Security",
-      "description": "",
+      "description": "Leader Text",
       "color": "#40713f"
     }
   ],
