@@ -1,3 +1,87 @@
 {
-  "basePath": "/techradar"
+  "basePath": "/techradar",
+  "quadrants": [
+    {
+      "id": "airline-operations",
+      "title": "Airline Operations",
+      "description": "A selection of programming languages, alongside essential frameworks for building a variety of custom software.",
+      "color": "#a3b18a"
+    },
+    {
+      "id": "operations",
+      "title": "Operations",
+      "description": "Key software development methods and design patterns, covering everything from continuous integration and testing to architecture.",
+      "color": "#588157"
+    },
+    {
+      "id": "tech-ops",
+      "title": "Tech Ops",
+      "description": "Technologies and tools for software and infrastructure operations, including platforms and services for managing and scaling applications.",
+      "color": "#3f633e"
+    },
+    {
+      "id": "airports",
+      "title": "Airports",
+      "description": "A range of software tools, from simple productivity enhancers to comprehensive project solutions, catering to various project needs.",
+      "color": "#40713f"
+    },
+    {
+      "id": "crew-systems",
+      "title": "Crew Systems",
+      "description": "A range of software tools, from simple productivity enhancers to comprehensive project solutions, catering to various project needs.",
+      "color": "#40713f"
+    },
+    {
+      "id": "flight-operations",
+      "title": "Flight Operations",
+      "description": "A range of software tools, from simple productivity enhancers to comprehensive project solutions, catering to various project needs.",
+      "color": "#40713f"
+    },
+    {
+      "id": "inflight",
+      "title": "Inflight",
+      "description": "A range of software tools, from simple productivity enhancers to comprehensive project solutions, catering to various project needs.",
+      "color": "#40713f"
+    },
+    {
+      "id": "safety-and-security",
+      "title": "Safety and Security",
+      "description": "A range of software tools, from simple productivity enhancers to comprehensive project solutions, catering to various project needs.",
+      "color": "#40713f"
+    }
+  ],
+  "rings": [
+    {
+      "id": "adopt",
+      "title": "Adopt",
+      "description": "",
+      "color": "#588157",
+      "radius": 0.5,
+      "strokeWidth": 5
+    },
+    {
+      "id": "trial",
+      "title": "Trial",
+      "description": "",
+      "color": "#457b9d",
+      "radius": 0.69,
+      "strokeWidth": 3
+    },
+    {
+      "id": "assess",
+      "title": "Assess",
+      "description": "",
+      "color": "#bc6c25",
+      "radius": 0.85,
+      "strokeWidth": 2
+    },
+    {
+      "id": "hold",
+      "title": "Hold",
+      "description": "",
+      "color": "#d62828",
+      "radius": 1,
+      "strokeWidth": 0.75
+    }
+  ]
 }
