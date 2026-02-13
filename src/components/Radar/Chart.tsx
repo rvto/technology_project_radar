@@ -23,7 +23,12 @@ const _Chart: FC<ChartProps> = ({
 }) => {
   const viewBoxSize = size;
   const center = size / 2;
-  const startAngles = [270, 0, 180, 90]; // Corresponding to positions 1, 2, 3, and 4 respectively
+  const sectorCount = 8;
+  const sectorAngle = 360 / sectorCount;
+  const baseStartAngle = 270;
+
+  const getSectorStartAngle = (position: number) =>
+    baseStartAngle + (position - 1) * sectorAngle;
 
   // Helper function to convert polar coordinates to cartesian
   const polarToCartesian = (
@@ -39,9 +44,8 @@ const _Chart: FC<ChartProps> = ({
 
   // Function to generate the path for a ring segment
   const describeArc = (radiusPercentage: number, position: number): string => {
-    // Define the start and end angles based on the quadrant position
-    const startAngle = startAngles[position - 1];
-    const endAngle = startAngle + 90;
+    const startAngle = getSectorStartAngle(position);
+    const endAngle = startAngle + sectorAngle;
 
     const radius = radiusPercentage * center; // Convert percentage to actual radius
     const start = polarToCartesian(radius, endAngle);
@@ -54,29 +58,33 @@ const _Chart: FC<ChartProps> = ({
     ].join(" ");
   };
 
+  const describeSector = (radius: number, position: number): string => {
+    const startAngle = getSectorStartAngle(position);
+    const endAngle = startAngle + sectorAngle;
+    const start = polarToCartesian(radius, startAngle);
+    const end = polarToCartesian(radius, endAngle);
+
+    // prettier-ignore
+    return [
+      "M", center, center,
+      "L", start.x, start.y,
+      "A", radius, radius, 0, 0, 1, end.x, end.y,
+      "Z",
+    ].join(" ");
+  };
+
   const renderGlow = (position: number, color: string) => {
     const gradientId = `glow-${position}`;
 
-    const cx = position === 1 || position === 3 ? 1 : 0;
-    const cy = position === 1 || position === 2 ? 1 : 0;
-
-    const x = position === 1 || position === 3 ? 0 : center;
-    const y = position === 1 || position === 2 ? 0 : center;
     return (
       <>
         <defs>
-          <radialGradient id={gradientId} x={0} y={0} r={1} cx={cx} cy={cy}>
+          <radialGradient id={gradientId} cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor={color} stopOpacity={0.5}></stop>
             <stop offset="100%" stopColor={color} stopOpacity={0}></stop>
           </radialGradient>
         </defs>
-        <rect
-          width={center}
-          height={center}
-          x={x}
-          y={y}
-          fill={`url(#${gradientId})`}
-        />
+        <path d={describeSector(center, position)} fill={`url(#${gradientId})`} />
       </>
     );
   };

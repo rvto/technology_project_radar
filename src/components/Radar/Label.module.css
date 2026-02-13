@@ -2,8 +2,10 @@
   width: 240px;
   min-height: 210px;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: var(--label-y);
+  left: var(--label-x);
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
 }
 
 .header {
@@ -22,16 +24,4 @@
 
 .description {
   font-size: 14px;
-}
-
-.position-2,
-.position-4 {
-  left: auto;
-  right: 0;
-}
-
-.position-3,
-.position-4 {
-  top: auto;
-  bottom: 0;
 }
