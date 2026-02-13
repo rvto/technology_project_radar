@@ -3,7 +3,7 @@
   --radar-pad-side: 30px;
   --radar-pad-bottom: 220px;
   padding: var(--radar-pad-top) var(--radar-pad-side) var(--radar-pad-bottom);
-  margin-bottom: 60px;
+  margin-bottom: 20px;
   position: relative;
   transition: padding 200ms ease-in-out;
 }

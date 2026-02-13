@@ -1,5 +1,15 @@
 {
   "basePath": "/techradar",
+  "colors": {
+    "foreground": "#fcf2e6",
+    "background": "#091615",
+    "highlight": "#d4a373",
+    "content": "#fff",
+    "text": "#575757",
+    "link": "#bc6c25",
+    "border": "rgba(255, 255, 255, 0.1)",
+    "tag": "rgba(255, 255, 255, 0.1)"
+  },
   "quadrants": [
     {
       "id": "airline-operations",

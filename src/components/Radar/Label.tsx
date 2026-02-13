@@ -18,14 +18,14 @@ export function Label({ quadrant }: LabelProps) {
   const angleInDegrees = getSectorCenterAngle(quadrant.position, sectorCount);
   const angleInRadians = (angleInDegrees * Math.PI) / 180;
   const labelDistanceByPosition: Record<number, number> = {
-    1: 62,
-    2: 52,
-    3: 52,
-    4: 65,
-    5: 65,
-    6: 52,
-    7: 52,
-    8: 62,
+    1: 50,
+    2: 58,
+    3: 58,
+    4: 55,
+    5: 55,
+    6: 65,
+    7: 65,
+    8: 52,
   };
   const labelDistance = labelDistanceByPosition[quadrant.position] ?? 62;
   const x = 50 + labelDistance * Math.sin(angleInRadians);
