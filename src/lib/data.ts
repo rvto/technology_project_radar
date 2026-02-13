@@ -2,7 +2,7 @@ import data from "../../data/data.json";
 import config from "./config";
 
 import { format } from "@/lib/format";
-import { Flag, Item, Quadrant, Ring } from "@/lib/types";
+import { Flag, Item, Ring, Sector } from "@/lib/types";
 import { assetUrl } from "@/lib/utils";
 
 export function getLabel(key: keyof typeof config.labels) {
@@ -75,11 +75,11 @@ export function getEditUrl(props: { id: string; release: string }) {
   return format(config.editUrl, props);
 }
 
-export function getQuadrants(): Quadrant[] {
+export function getQuadrants(): Sector[] {
   return config.quadrants.map((q, i) => ({ ...q, position: i + 1 }));
 }
 
-export function getQuadrant(id: string): Quadrant | undefined {
+export function getQuadrant(id: string): Sector | undefined {
   return getQuadrants().find((q) => q.id === id);
 }
 

@@ -12,12 +12,12 @@ import styles from "./Radar.module.css";
 import { Chart } from "@/components/Radar/Chart";
 import { Label } from "@/components/Radar/Label";
 import { Legend } from "@/components/Radar/Legend";
-import { Item, Quadrant, Ring } from "@/lib/types";
+import { Item, Sector, Ring } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 export interface RadarProps {
   size?: number;
-  quadrants: Quadrant[];
+  quadrants: Sector[];
   rings: Ring[];
   items: Item[];
 }

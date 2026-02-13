@@ -4,11 +4,11 @@ import React, { FC, Fragment, memo } from "react";
 import styles from "./Chart.module.css";
 
 import { Blip } from "@/components/Radar/Blip";
-import { Item, Quadrant, Ring } from "@/lib/types";
+import { Item, Sector, Ring } from "@/lib/types";
 
 export interface ChartProps {
   size?: number;
-  quadrants: Quadrant[];
+  quadrants: Sector[];
   rings: Ring[];
   items: Item[];
   className?: string;

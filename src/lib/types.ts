@@ -36,7 +36,7 @@ export interface Ring {
   strokeWidth?: number;
 }
 
-export interface Quadrant {
+export interface Sector {
   id: string;
   title: string;
   description: string;

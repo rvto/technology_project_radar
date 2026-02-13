@@ -4,11 +4,11 @@ import styles from "./QuadrantLink.module.css";
 
 import Pie from "@/components/Icons/Pie";
 import { getLabel } from "@/lib/data";
-import { Quadrant } from "@/lib/types";
+import { Sector } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 interface QuadrantLinkProps {
-  quadrant: Quadrant;
+  quadrant: Sector;
   label?: string;
   className?: string;
 }
