@@ -1,5 +1,9 @@
 .radar {
-  padding: 0 15px 30px;
+  --radar-pad-top: 180px;
+  --radar-pad-side: 30px;
+  --radar-pad-bottom: 220px;
+  padding: var(--radar-pad-top) var(--radar-pad-side) var(--radar-pad-bottom);
+  margin-bottom: 60px;
   position: relative;
   transition: padding 200ms ease-in-out;
 }
@@ -10,6 +14,15 @@
   height: auto;
   margin: 0 auto;
   fill: currentColor;
+}
+
+.labels {
+  position: absolute;
+  top: var(--radar-pad-top);
+  right: var(--radar-pad-side);
+  bottom: var(--radar-pad-bottom);
+  left: var(--radar-pad-side);
+  pointer-events: none;
 }
 
 .tooltip {
@@ -62,6 +75,14 @@
 }
 
 @media (max-width: 767px) {
+  .radar {
+    --radar-pad-top: 0;
+    --radar-pad-side: 15px;
+    --radar-pad-bottom: 40px;
+    padding: 0 15px 40px;
+    margin-bottom: 30px;
+  }
+
   .labels {
     display: none;
   }
@@ -69,6 +90,10 @@
 
 @media (min-width: 768px) and (max-width: 1200px) {
   .radar {
-    padding: 150px 15px;
+    --radar-pad-top: 140px;
+    --radar-pad-side: 20px;
+    --radar-pad-bottom: 180px;
+    padding: 140px 20px 180px;
+    margin-bottom: 50px;
   }
 }
