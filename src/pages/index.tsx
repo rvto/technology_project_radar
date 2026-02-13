@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { QuadrantList } from "@/components/QuadrantList/QuadrantList";
 import { Radar } from "@/components/Radar/Radar";
 import { Tags } from "@/components/Tags/Tags";
+import styles from "@/pages/index.module.css";
 import {
   getAppName,
   getChartConfig,
@@ -41,7 +42,7 @@ const Home: CustomPage = () => {
         )}
       </Head>
 
-      <h1>
+      <h1 className={styles.title}>
         {appName}{" "}
         <span style={{ color: "var(--highlight)", whiteSpace: "nowrap" }}>
           Version #{version}

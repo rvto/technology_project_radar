@@ -1,0 +1,9 @@
+.title {
+  margin-bottom: 56px;
+}
+
+@media (max-width: 767px) {
+  .title {
+    margin-bottom: 28px;
+  }
+}
